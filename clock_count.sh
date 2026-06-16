@@ -1,0 +1,23 @@
+cloc \
+  ~/Desktop/machine/omnibioai \
+  ~/Desktop/machine/omnibioai-landing \
+  ~/Desktop/machine/omnibioai-api-gateway \
+  ~/Desktop/machine/omnibioai-tes \
+  ~/Desktop/machine/omnibioai_sdk \
+  ~/Desktop/machine/omnibioai-rag \
+  ~/Desktop/machine/omnibioai-toolserver \
+  ~/Desktop/machine/omnibioai-model-registry \
+  ~/Desktop/machine/omnibioai-dev-hub \
+  ~/Desktop/machine/omnibioai-policy-engine \
+  ~/Desktop/machine/omnibioai-security-audit \
+  ~/Desktop/machine/omnibioai-hpc-policy-engine \
+  ~/Desktop/machine/omnibioai-auth \
+  ~/Desktop/machine/omnibioai-tool-images \
+  ~/Desktop/machine/omnibioai-control-center \
+  ~/Desktop/machine/omnibioai-workflow-bundles \
+  ~/Desktop/machine/omnibioai-studio \
+  ~/Desktop/machine/omnibioai-lims \
+  --exclude-dir=node_modules,.venv,__pycache__,migrations,htmlcov,.git,obsolete,locale,data,work,uploads,downloads,results,output,cache,logs,tmp \
+  --exclude-ext=json,lock,svg,min.js,map,po,pot,txt,csv,log,sql \
+  --include-lang=Python,JavaScript,TypeScript,CSS,HTML,Shell,R,Dockerfile,YAML,Groovy,JSX,SCSS \
+  2>/dev/null | tail -15

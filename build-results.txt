@@ -1,0 +1,141 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Building all new images...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+▶ Building ghcr.io/man4ish/omnibioai-tes:new from /home/manish/Desktop/machine/omnibioai-tes/Dockerfile.new
+#18 exporting layers 0.1s done
+#18 writing image sha256:a9f84760db8ac8403f00d2ac1d228966b6b8453f26fa52a777720ca2108e40c1
+#18 writing image sha256:a9f84760db8ac8403f00d2ac1d228966b6b8453f26fa52a777720ca2108e40c1 done
+#18 naming to ghcr.io/man4ish/omnibioai-tes:new done
+#18 DONE 0.1s
+✅ ghcr.io/man4ish/omnibioai-tes:new built successfully
+
+▶ Building ghcr.io/man4ish/omnibioai-model-registry:new from /home/manish/Desktop/machine/omnibioai-model-registry/Dockerfile.new
+#16 exporting to image
+#16 exporting layers 0.1s done
+#16 writing image sha256:f09b3aa1a3bf2544775fa63d30f72568c9767fc48d4ac95992a68c5a2f90d95d done
+#16 naming to ghcr.io/man4ish/omnibioai-model-registry:new done
+#16 DONE 0.1s
+✅ ghcr.io/man4ish/omnibioai-model-registry:new built successfully
+
+▶ Building ghcr.io/man4ish/omnibioai-toolserver:new from /home/manish/Desktop/machine/omnibioai-toolserver/Dockerfile.new
+#12 exporting to image
+#12 exporting layers 0.1s done
+#12 writing image sha256:c4cd91ce4019a06f898bfaa9f46c2c392b7ecf0ba4909d75fc64bfbc903ef13f done
+#12 naming to ghcr.io/man4ish/omnibioai-toolserver:new done
+#12 DONE 0.1s
+✅ ghcr.io/man4ish/omnibioai-toolserver:new built successfully
+
+▶ Building ghcr.io/man4ish/omnibioai-lims:new from /home/manish/Desktop/machine/omnibioai-lims/Dockerfile.new
+#10 exporting layers
+#10 exporting layers 1.5s done
+#10 writing image sha256:136fd266d0e386945edd018ec42287065679ba95da9a40c81c39efc3bca41b24 done
+#10 naming to ghcr.io/man4ish/omnibioai-lims:new done
+#10 DONE 1.5s
+✅ ghcr.io/man4ish/omnibioai-lims:new built successfully
+
+▶ Building ghcr.io/man4ish/omnibioai-rag:new from /home/manish/Desktop/machine/omnibioai-rag/Dockerfile.new
+#16 exporting to image
+#16 exporting layers 0.1s done
+#16 writing image sha256:2cf143c414b75175ac39ee3155735bd5ed17879e9faeb89e3e0d6f50bab4d3c1 done
+#16 naming to ghcr.io/man4ish/omnibioai-rag:new done
+#16 DONE 0.1s
+✅ ghcr.io/man4ish/omnibioai-rag:new built successfully
+
+▶ Building ghcr.io/man4ish/omnibioai-control-center:new from /home/manish/Desktop/machine/omnibioai-control-center/Dockerfile.new
+#16 exporting to image
+#16 exporting layers 0.1s done
+#16 writing image sha256:6adecb91870a6ecadfc6d31fddb0b8b5e01e8249afe41abe5b264793b6674e6e done
+#16 naming to ghcr.io/man4ish/omnibioai-control-center:new done
+#16 DONE 0.1s
+✅ ghcr.io/man4ish/omnibioai-control-center:new built successfully
+
+▶ Building ghcr.io/man4ish/omnibioai-tool-runtime:new from /home/manish/Desktop/machine/omnibioai-tool-runtime/Dockerfile.new
+#13 naming to ghcr.io/man4ish/omnibioai-tool-runtime:new done
+#13 DONE 2.1s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromPlatformFlagConstDisallowed: FROM --platform flag should not use constant value "linux/amd64" (line 3)
+✅ ghcr.io/man4ish/omnibioai-tool-runtime:new built successfully
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Size comparison (new vs old):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+── omnibioai-tes ──
+new	61.7MB	2026-05-08 18:25:23 +0000 UTC
+latest	292MB	2026-04-23 03:11:25 +0000 UTC
+
+── omnibioai-model-registry ──
+new	62MB	2026-05-08 18:25:31 +0000 UTC
+latest	222MB	2026-04-23 03:11:21 +0000 UTC
+
+── omnibioai-toolserver ──
+new	3.4GB	2026-05-08 18:25:33 +0000 UTC
+latest	176MB	2026-04-23 03:11:13 +0000 UTC
+
+── omnibioai-lims ──
+new	3.83GB	2026-05-08 18:26:07 +0000 UTC
+
+── omnibioai-rag ──
+new	61.7MB	2026-05-08 18:26:45 +0000 UTC
+
+── omnibioai-control-center ──
+new	61.7MB	2026-05-08 18:26:50 +0000 UTC
+latest	1.91GB	2026-04-23 03:11:56 +0000 UTC
+
+── omnibioai-tool-runtime ──
+new	1.18GB	2026-05-08 18:32:49 +0000 UTC
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Delta layers for new images:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+── ghcr.io/man4ish/omnibioai-tes:new ──
+268B	COPY <<EOF /etc/nginx/conf.d/default.conf # …
+184kB	COPY /frontend/dist /usr/share/nginx/html # …
+48.3MB	RUN /bin/sh -c set -x     && apkArch="$(cat …
+4.62kB	COPY 30-tune-worker-processes.sh /docker-ent…
+3.02kB	COPY 20-envsubst-on-templates.sh /docker-ent…
+
+── ghcr.io/man4ish/omnibioai-model-registry:new ──
+290B	COPY <<EOF /etc/nginx/conf.d/default.conf # …
+456kB	COPY /frontend/dist /usr/share/nginx/html # …
+48.3MB	RUN /bin/sh -c set -x     && apkArch="$(cat …
+4.62kB	COPY 30-tune-worker-processes.sh /docker-ent…
+3.02kB	COPY 20-envsubst-on-templates.sh /docker-ent…
+
+── ghcr.io/man4ish/omnibioai-toolserver:new ──
+576B	COPY scripts/ ./scripts/ # buildkit
+6.03kB	COPY toolserver_app.py . # buildkit
+83kB	COPY toolserver/ ./toolserver/ # buildkit
+2.4MB	RUN /bin/sh -c pip install --no-cache-dir --…
+60B	COPY requirements.txt . # buildkit
+
+── ghcr.io/man4ish/omnibioai-lims:new ──
+245MB	COPY . . # buildkit
+191MB	RUN /bin/sh -c pip install --no-cache-dir --…
+4.31kB	COPY requirements.txt* pyproject.toml* ./ # …
+219MB	RUN /bin/sh -c pip install --no-cache-dir   …
+95.3MB	RUN /bin/sh -c pip install --no-cache-dir   …
+
+── ghcr.io/man4ish/omnibioai-rag:new ──
+215B	COPY <<EOF /etc/nginx/conf.d/default.conf # …
+170kB	COPY /frontend/dist /usr/share/nginx/html # …
+48.3MB	RUN /bin/sh -c set -x     && apkArch="$(cat …
+4.62kB	COPY 30-tune-worker-processes.sh /docker-ent…
+3.02kB	COPY 20-envsubst-on-templates.sh /docker-ent…
+
+── ghcr.io/man4ish/omnibioai-control-center:new ──
+676B	COPY <<EOF /etc/nginx/conf.d/default.conf # …
+182kB	COPY /frontend/dist /usr/share/nginx/html # …
+48.3MB	RUN /bin/sh -c set -x     && apkArch="$(cat …
+4.62kB	COPY 30-tune-worker-processes.sh /docker-ent…
+3.02kB	COPY 20-envsubst-on-templates.sh /docker-ent…
+
+── ghcr.io/man4ish/omnibioai-tool-runtime:new ──
+1.25MB	COPY . . # buildkit
+55.6MB	RUN /bin/sh -c pip install --no-cache-dir . …
+3.24kB	COPY pyproject.toml . # buildkit
+41.7MB	RUN /bin/sh -c curl -s https://get.nextflow.…
+121MB	RUN /bin/sh -c curl -fsSL -o apptainer.deb  …
