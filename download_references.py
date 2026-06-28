@@ -85,10 +85,14 @@ class ReferenceDownloader:
         dest.parent.mkdir(parents=True, exist_ok=True)
         print(f"[GET]   {label}")
         print(f"        {url}")
-        subprocess.run(
-            ["wget", "-c", "--progress=bar:force", "-O", str(dest), url],
-            check=True,
-        )
+        try:
+            subprocess.run(
+                ["wget", "-c", "--progress=bar:force", "-O", str(dest), url],
+                check=True,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"[WARN]  Download failed: {url} — {e}")
+            return False
         print(f"[DONE]  {label}")
         self._downloaded.append({"desc": label, "path": str(dest), "url": url})
         return True
@@ -361,25 +365,21 @@ class ReferenceDownloader:
             "ClinVar index",
         )
 
-        # GATK bundle
-        gatk_base_url = "https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/v0"
-        gatk_files = {
-            "Mills_and_1000G_gold_standard.indels.hg38.vcf.gz":
-                f"{gatk_base_url}/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz",
-            "Mills_and_1000G_gold_standard.indels.hg38.vcf.gz.tbi":
-                f"{gatk_base_url}/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz.tbi",
-            "1000G_phase1.snps.high_confidence.hg38.vcf.gz":
-                f"{gatk_base_url}/1000G_phase1.snps.high_confidence.hg38.vcf.gz",
-            "1000G_phase1.snps.high_confidence.hg38.vcf.gz.tbi":
-                f"{gatk_base_url}/1000G_phase1.snps.high_confidence.hg38.vcf.gz.tbi",
+        # gnomAD genomes v4 (publicly hosted on AWS; chr1 as representative)
+        gnomad_base = "https://gnomad-public-us-east-1.s3.amazonaws.com/release/4.0/vcf/genomes"
+        gnomad_files = {
+            "gnomad.genomes.v4.0.sites.chr1.vcf.bgz":
+                f"{gnomad_base}/gnomad.genomes.v4.0.sites.chr1.vcf.bgz",
+            "gnomad.genomes.v4.0.sites.chr1.vcf.bgz.tbi":
+                f"{gnomad_base}/gnomad.genomes.v4.0.sites.chr1.vcf.bgz.tbi",
         }
-        self._batch(gatk_files, base / "gatk_bundle", "GATK bundle")
+        self._batch(gnomad_files, base / "gnomad", "gnomAD v4 genomes")
 
         register_file(self.registry, "variants", {
             "name": "human_variants_GRCh38",
             "organism": "human",
             "assembly": "GRCh38",
-            "sources": ["dbsnp", "clinvar", "gatk_bundle"],
+            "sources": ["dbsnp", "clinvar", "gnomad"],
             "path": str(base),
             "downloaded_at": _now(),
         })
@@ -494,7 +494,6 @@ class ReferenceDownloader:
             "variants/human/clinvar",
             "variants/human/gnomad",
             "variants/human/cosmic",
-            "variants/human/gatk_bundle",
             "variants/mouse",
             "annotation/human/gencode",
             "annotation/human/ensembl",
@@ -547,7 +546,7 @@ class ReferenceDownloader:
             # Variants
             ("dbSNP GRCh38",                  self.base_dir / "variants/human/dbsnp/dbsnp_GRCh38_latest.vcf.gz"),
             ("ClinVar GRCh38",                self.base_dir / "variants/human/clinvar/clinvar_GRCh38.vcf.gz"),
-            ("GATK Mills indels",             self.base_dir / "variants/human/gatk_bundle/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"),
+            ("gnomAD v4 genomes chr1",        self.base_dir / "variants/human/gnomad/gnomad.genomes.v4.0.sites.chr1.vcf.bgz"),
             # Databases
             ("UniProt SwissProt",             self.base_dir / "databases/uniprot/swissprot/uniprot_sprot.fasta.gz"),
             ("Pfam-A HMM",                    self.base_dir / "databases/pfam/Pfam-A.hmm.gz"),
@@ -645,7 +644,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--base-dir",
         default=os.path.expanduser("~/Desktop/machine/omnibioai-data/reference"),
-        help="Base reference data directory (default: ~/Desktop/machine/omnibioai-data/reference)",
+        help=(
+            "Base reference data directory "
+            "(default: ~/Desktop/machine/omnibioai-data/reference). "
+            "Always set this explicitly — the default is machine-specific "
+            "and will fail on any other host."
+        ),
     )
     parser.add_argument(
         "--species",
